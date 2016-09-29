@@ -1,0 +1,80 @@
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'abstractApp/style.css' %}" />
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Point Of Sale</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li>
+          <form class="navbar-form navbar-left" role="search" method="get" action="#">
+              <div class="form-group">
+                  <input type="text" class="form-control" name="q" value="">
+
+              </div>
+              <button type="submit" class="btn btn-success"><span class=" glyphicon glyphicon-search"></span> Search</button>
+
+          </form>
+
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class=" glyphicon glyphicon-list-alt"></span> Product Menu <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#"><i class="fa fa-coffee"></i> Coffee</a></li>
+            <li><a href="#"><span class=" glyphicon glyphicon-flash"></span> Energy Drinks</a></li>
+            <li><a href="#"><span class=" glyphicon glyphicon-ice-lolly-tasted"></span> Junk Foods</a></li>
+          </ul>
+        </li>
+        <li><a href="#"><span class=" glyphicon glyphicon-log-out"></span>&nbsp; Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<br><br><br><br><br>
+<div class="container">
+
+  <div class="panel-group">
+    <div class="panel panel-primary">
+      <div class="panel-heading"><h2>Add New Product</h2></div> 
+      <div class="panel-body">
+
+
+<form action="{% url 'addproduct2' %}" method="post">
+  {% csrf_token %}
+Product Name: <input type="text" name="productname" class="form-control" required/>
+Product Price:<input type="number" name="productprice" class="form-control" required/>
+Product Logo:<input type="text" name="productlogo" class="form-control" required/>
+Product Type: <select type="text" name="producttype" class="form-control" required >
+  <option></option>
+<option value="Coffee">Coffee</option>
+<option value="Energy Drink">Energy Drink</option>
+<option value="Junk Foods">Junk Foods</option>
+</select>
+ <br><br>
+
+ <center>
+        <button type="submit" class="btn btn-success btn-lg"><span class="  glyphicon glyphicon-plus-sign"></span> Add Product</button>
+      </center>
+
+</form>
+
+</div>
+    </div>
+   
+      </div>
+    </div>
